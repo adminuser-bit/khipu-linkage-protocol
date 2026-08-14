@@ -1,0 +1,55 @@
+name: freeze-guard
+
+on:
+  push:
+    branches: ["**"]
+  pull_request:
+
+jobs:
+  verify:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+
+      - name: Verify frozen-file hashes
+        run: python3 scripts/verify_freeze.py
+
+      - name: Enforce append-only paths
+        # amendments/, deposits/, sealed/, logs/ : existing committed lines may
+        # never be modified or deleted; files may be added and .jsonl/.md logs
+        # may grow at the end. We diff against the push/PR base.
+        run: |
+          set -euo pipefail
+          if [ "${{ github.event_name }}" = "pull_request" ]; then
+            BASE="${{ github.event.pull_request.base.sha }}"
+          else
+            BASE="${{ github.event.before }}"
+          fi
+          # First push of a branch (or force-history edge cases): fall back to
+          # empty tree so everything counts as added, which is allowed.
+          if ! git cat-file -e "$BASE" 2>/dev/null || [ "$BASE" = "0000000000000000000000000000000000000000" ]; then
+            BASE=$(git hash-object -t tree /dev/null)
+          fi
+          VIOLATIONS=$(git diff "$BASE" HEAD -- amendments/ deposits/ sealed/ logs/ \
+            | grep -E '^-' | grep -vE '^---' || true)
+          if [ -n "$VIOLATIONS" ]; then
+            echo "APPEND-ONLY VIOLATION: lines were modified or deleted in a protected path:"
+            echo "$VIOLATIONS"
+            exit 1
+          fi
+          echo "append-only check passed"
+
+      - name: Refuse plaintext in sealed/
+        # sealed/ may contain only ciphertext (.age/.gpg), commitment files
+        # (.sha256), and READMEs.
+        run: |
+          set -euo pipefail
+          BAD=$(find sealed -type f ! -name '*.age' ! -name '*.gpg' ! -name '*.sha256' ! -name 'README*' || true)
+          if [ -n "$BAD" ]; then
+            echo "SEAL VIOLATION: unexpected file type in sealed/:"
+            echo "$BAD"
+            exit 1
+          fi
+          echo "sealed/ content check passed"
