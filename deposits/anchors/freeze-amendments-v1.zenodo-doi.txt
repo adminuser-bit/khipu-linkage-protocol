@@ -1,0 +1,13 @@
+Zenodo secondary anchor for freeze/amendments-v1
+================================================
+Version DOI (pins this exact deposit): 10.5281/zenodo.21935957
+Concept DOI (all versions):            10.5281/zenodo.21935956
+Record URL: https://zenodo.org/records/21935957
+Published: 2026-08-14 · Creator: Laurent Heller · License: CC BY 4.0
+Deposited file: khipu-linkage-protocol-freeze-amendments-v1.tar.gz
+  size: 314,090 bytes
+  md5:  00b7af111526340cecbe2dc9e367d07a
+Verification performed 2026-08-14 before this commit: Zenodo API record
+retrieved; deposited file size and MD5 match the local `git archive` of tag
+freeze/amendments-v1 (tag object d778973528cbc9f42b94228d36715acb3c156c5b,
+commit 3bbcb8d4ec054276c2abe8e74757798966efb0d5) byte-for-byte.
