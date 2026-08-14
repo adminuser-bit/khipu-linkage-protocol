@@ -1,0 +1,12 @@
+object 501977eeaf0a4a852e5d68fdafac93397b438dba
+type commit
+tag freeze/invocation-wrapper-v1
+tagger adminuser-bit <lheller@gmail.com> 1786730299 -0400
+
+Freeze: A24.2 invocation wrapper (8 wrapper/ files in frozen manifest); selftest KHI-RUN-000001 verified the full path end-to-end
+-----BEGIN SSH SIGNATURE-----
+U1NIU0lHAAAAAQAAADMAAAALc3NoLWVkMjU1MTkAAAAgaXiRJsY/IW6vvFGIMpA6CTJwm0
+AuCfCL1qUjUeoCGGMAAAADZ2l0AAAAAAAAAAZzaGE1MTIAAABTAAAAC3NzaC1lZDI1NTE5
+AAAAQE6fMoNBGZwBbFSYMtXLofGuIRuJUBu4DxlXGZh4FoPG98wcteEa5D+0EJxnQNfevB
+4P8MKirw8nSkh5V+YDtQo=
+-----END SSH SIGNATURE-----
