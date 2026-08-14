@@ -1,0 +1,18 @@
+{
+  "duration_s": 0.039,
+  "exit_code": 0,
+  "note": "wrapper selftest; non-evidential",
+  "pre_commit": "90076453d2ccb6306586ff706e0807485044783e",
+  "pre_record_sha256": "2213bba3b4d61f115c96001c0b5c1ec3f8e623eed32b4a73158fece93d1d552f",
+  "record_type": "invocation-result",
+  "run_id": "KHI-RUN-000001",
+  "schema_version": 1,
+  "status": "COMPLETED",
+  "stderr_bytes": 0,
+  "stderr_file": "logs/invocations/KHI-RUN-000001.stderr.raw",
+  "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+  "stdout_bytes": 112,
+  "stdout_file": "logs/invocations/KHI-RUN-000001.stdout.raw",
+  "stdout_sha256": "d3b36747c4193aed1083ca68070366d647907cada715812ae9ef59848b04b2c0",
+  "timestamp_utc": "2026-08-14T14:45:48Z"
+}
