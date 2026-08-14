@@ -9,8 +9,10 @@ the disagreement must be filed as a finding.
 
 ## 1. The record
 
-The default branch of this repository is the canonical tribunal record for the
-KHI family execution. Rules:
+The canonical tribunal record is the chain of signed annotated `freeze/*` tags
+at exact commit hashes, each externally anchored before any action it gates.
+The default branch is a protected working surface and append-only execution
+record, but is not itself a frozen canonical state. Rules:
 
 - **R1 — No history rewriting.** The default branch is protected: no force-push,
   no branch deletion, no tag deletion or re-pointing. A violation discovered later
@@ -23,10 +25,13 @@ KHI family execution. Rules:
   are append-only: files may be added, and designated `.jsonl` logs may grow at
   the end, but no existing committed line may be modified or deleted. CI enforces
   this by diffing against the merge base.
-- **R4 — External anchoring.** Every `freeze/*` tag is anchored outside GitHub
-  within 72 hours: a Zenodo versioned deposit of the tagged tree (immutable DOI)
-  and/or an OpenTimestamps proof of the tag's commit hash, committed back into
-  `deposits/anchors/`. Until anchored, a freeze is provisional.
+- **R4 — External anchoring.** Every `freeze/*` tag must be externally anchored
+  by a Zenodo versioned deposit of the tagged tree and/or an OpenTimestamps
+  proof of the tag's exact commit hash **before the freeze becomes effective**.
+  The anchor reference is committed under `deposits/anchors/`. No action gated
+  by that freeze may occur while anchoring is absent or pending. The 72-hour
+  interval is an administrative completion target only and grants no
+  provisional execution authority.
 - **R5 — Deposits precede data contact.** A commitment (SHA-256, optionally with
   ciphertext) must be committed and pushed *before* the act it protects (archive
   search, document read, unmasking). The commit timestamp plus anchoring is the
@@ -36,12 +41,16 @@ KHI family execution. Rules:
 
 A freeze is executed by the operator, and only by the operator:
 
-1. Open a pull request containing exactly the material to be frozen.
+1. Open a pull request containing exactly the material to be frozen **and** the
+   corresponding update to `deposits/frozen-manifest.sha256`, so the frozen
+   files and their manifest hashes land in the same tree.
 2. CI green; external review recorded where required (G7 items).
-3. Merge; append the new files' hashes to `deposits/frozen-manifest.sha256`.
-4. Create a **signed annotated tag** `freeze/<name>-v<N>` (GPG/SSH signature by
-   the operator's published key, fingerprint recorded in `deposits/operator-key.txt`).
-5. Anchor per R4.
+3. Merge; the merged tree already contains the manifest update.
+4. Create a **signed annotated tag** `freeze/<name>-v<N>` on that exact commit
+   (GPG/SSH signature by the operator's published key, fingerprint recorded in
+   `deposits/operator-key.txt`).
+5. Anchor per R4. **The freeze is effective only once anchored**; no action it
+   gates may occur before the anchor reference is committed.
 
 Registered freeze points for this run: `freeze/amendments-v1`,
 `freeze/A0-universe-v1`, `freeze/scoring-code-v1`, and (Phase C only)
