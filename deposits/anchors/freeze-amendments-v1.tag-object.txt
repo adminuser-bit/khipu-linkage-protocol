@@ -1,0 +1,12 @@
+object 3bbcb8d4ec054276c2abe8e74757798966efb0d5
+type commit
+tag freeze/amendments-v1
+tagger adminuser-bit <lheller@gmail.com> 1786717858 -0400
+
+Amendment package A20-A31 frozen (v8). Terminal certification: REVIEW-2026-08-14-GPT-5.6-Sol-09-TERMINAL.md (CLEAR TO FREEZE, GPT-5.6 Sol, 2026-08-14). R-1/R-2 ratified by operator (commit 7d41430). Protocol-body span sha256 11cbd3fcc38a498d3b23b551d67504140b72c98d70121112aadf5529a124bebd.
+-----BEGIN SSH SIGNATURE-----
+U1NIU0lHAAAAAQAAADMAAAALc3NoLWVkMjU1MTkAAAAgaXiRJsY/IW6vvFGIMpA6CTJwm0
+AuCfCL1qUjUeoCGGMAAAADZ2l0AAAAAAAAAAZzaGE1MTIAAABTAAAAC3NzaC1lZDI1NTE5
+AAAAQPK+KWcR0MAsPU8Z/IMowSJDb9VTsJLmEd0UqxEBNPtpflDpjyO6vmAlUznuCtpXbd
+AOStfSxVZ3F5IpWjcX1AI=
+-----END SSH SIGNATURE-----
