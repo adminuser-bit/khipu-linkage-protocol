@@ -52,8 +52,10 @@ document, understanding and affirming specifically that:
 
 ## Signature
 
-Signed: ______________________ (operator name)
-Date: ______________________
-Commit authored by the operator: ______________________ (filled with the
+Signed: _Laurent Heller_____________________ (operator name)
+Date: ___8/14/26____________
+Commit authored by the operator: _________ (filled with the
 signing commit's hash in a follow-up line; the signing commit itself is the
 authoritative act)
+
+
