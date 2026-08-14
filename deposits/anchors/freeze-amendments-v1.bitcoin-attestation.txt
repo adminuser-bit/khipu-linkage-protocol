@@ -1,0 +1,17 @@
+Bitcoin attestation record — freeze/amendments-v1 OTS anchor
+============================================================
+Upgraded proof file: freeze-amendments-v1.tag-object.txt.bitcoin.ots
+(the original calendar-submission proof .ots is retained unmodified alongside)
+Upgrade performed: 2026-08-14, via `ots upgrade` (client v0.7.2), on a scratch
+copy; attestations returned by alice.btc.calendar.opentimestamps.org and
+bob.btc.calendar.opentimestamps.org; "Timestamp complete."
+Embedded attestations (from `ots info`):
+  BitcoinBlockHeaderAttestation(962449)
+    merkle root 7fea45ae84b610f109bb970094d47878f4386cada62820c7f99ad674330fd67c
+  BitcoinBlockHeaderAttestation(962456)
+    merkle root 0e7a9962b30cc885f74c721713a9fb77a66aa6541dd43ed57dc64e339e90be13
+Verification note (honest scope): local full-chain verification was NOT
+performed (no Bitcoin node on this machine). Independent verification:
+  ots verify -f freeze-amendments-v1.tag-object.txt freeze-amendments-v1.tag-object.txt.bitcoin.ots
+against any Bitcoin node, or check the merkle roots above against blocks
+962449/962456 in any block explorer.
