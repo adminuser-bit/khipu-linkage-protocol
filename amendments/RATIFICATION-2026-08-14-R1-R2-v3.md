@@ -59,3 +59,9 @@ signing commit's hash in a follow-up line; the signing commit itself is the
 authoritative act)
 
 
+
+---
+Follow-up line per the instrument's own procedure: signing commit authored by
+the operator = 7d41430 ("Operator ratification of R-1 and R-2 (signed)",
+2026-08-14). Appended by the coordinating model at freeze preparation; the
+signing commit itself is the authoritative act.

@@ -1,0 +1,3 @@
+Operator signing key (SSH, used for freeze/* tag signatures via git gpg.format=ssh)
+Operator: Laurent Heller <lheller@gmail.com>
+ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIGl4kSbGPyFur7xRiDKQOgkycJtALgnwi9alI1HqAhhj feral
