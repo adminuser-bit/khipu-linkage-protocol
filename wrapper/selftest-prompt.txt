@@ -1,0 +1,2 @@
+KHI invocation-wrapper selftest. This is not a model prompt; the dummy
+adapter acknowledges deterministically. Non-evidential.

@@ -1,0 +1,6 @@
+{
+  "temperature": 0,
+  "top_p": 1,
+  "max_tokens": 64,
+  "note": "dummy adapter; settings recorded for schema exercise only"
+}
